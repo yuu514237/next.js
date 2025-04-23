@@ -1,9 +1,22 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import Counter from "./Counter";
+import Link from "next/link";
 export default function Home() {
   return (
     <div className={styles.page}>
+       <div>
+        <h1>記事一覧</h1>
+        <ul>
+          {postIds.map((id) => (
+            <li key={id}>
+              <Link href={`/post/${id}`}>記事 {id} を読む</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <Link href="/about">Aboutページへ移動</Link>
+      <Counter />
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -18,6 +31,7 @@ export default function Home() {
             Get started by editing <code>app/page.js</code>.
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>こんにちは</li>
         </ol>
 
         <div className={styles.ctas}>
